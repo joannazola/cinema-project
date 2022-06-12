@@ -1,0 +1,36 @@
+<section class="header">
+  <div class="header__section">
+    <div class="header__section-logo">
+      <img
+        src="../../assets/images/logo-cinema.png"
+        alt="Cinema logo"
+        class="header__section-image"
+      />
+    </div>
+    <div class="header__section-description">
+      <div class="header__section-text">More than just cinema.</div>
+      <div class="header__section-underline">
+        __________________________________
+      </div>
+    </div>
+  </div>
+  <div class="header__navigation">
+    <div class="header__navigation-group">
+      <div class="header__navigation-text" [routerLink]="['/main-page']">
+        Home
+      </div>
+      <div class="header__navigation-text" [routerLink]="['/whats-on']">
+        What's on
+      </div>
+      <div class="header__navigation-text" [routerLink]="['/my-tickets']">
+        My tickets
+      </div>
+    </div>
+    <div class="header__navigation-group">
+      <div class="header__navigation-text" [routerLink]="['/login']">Login</div>
+      <div class="header__navigation-text" [routerLink]="['/registration']">
+        Registration
+      </div>
+    </div>
+  </div>
+</section>

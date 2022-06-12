@@ -8,6 +8,8 @@ import { WhatsOnComponent } from './whats-on/whats-on.component';
 import { MyTicketsComponent } from './my-tickets/my-tickets.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { RegistrationComponent } from './registration/registration.component';
     WhatsOnComponent,
     MyTicketsComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
