@@ -1,0 +1,79 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 96px;
+
+  &__welcome {
+    font-family: "Crimson Text", serif;
+    color: whitesmoke;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-decoration-color: #e59202;
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  &__icon {
+    width: 128px;
+    height: 128px;
+    border-radius: 100px;
+    background-color: #e59202;
+    position: relative;
+    margin-bottom: 36px;
+  }
+
+  &__image {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-52%, -55%);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__signup {
+    color: whitesmoke;
+    font-size: 12px;
+  }
+
+  &__signup-color {
+    color: #e59202;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+
+#login {
+  width: 300px;
+  height: 36px;
+  border-radius: 100px;
+  border: none;
+  font-size: 16px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.button-submit {
+  width: 300px;
+  height: 36px;
+  border-radius: 100px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #e59202;
+  margin-bottom: 12px;
+  cursor: pointer;
+}

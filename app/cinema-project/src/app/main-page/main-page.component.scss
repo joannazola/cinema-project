@@ -1,0 +1,24 @@
+.main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Crimson Text", serif;
+  background-color: #111;
+  margin-bottom: 48px;
+
+  &__description {
+    font-size: 28px;
+    color: whitesmoke;
+    font-family: "Crimson Text", serif;
+    text-decoration: underline;
+    text-decoration-color: #ffa300;
+    margin-bottom: 16px;
+  }
+
+  &__movie {
+    width: auto;
+    height: 720px;
+    object-fit: scale-down;
+  }
+}
