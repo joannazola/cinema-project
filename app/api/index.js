@@ -45,6 +45,25 @@ io.on("connection", (socket) => {
       }
     });
   });
+
+  socket.on("preorder", function (message) {
+    fs.readFile("database.json", "utf8", function readFileCallback(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        obj = JSON.parse(data);
+
+        obj.preorders.push({
+          movie: message,
+        });
+        json = JSON.stringify(obj);
+        fs.writeFile("database.json", json, "utf8", function (err) {
+          if (err) throw err;
+          console.log("complete");
+        });
+      }
+    });
+  });
 });
 
 server.listen(3100, () => {

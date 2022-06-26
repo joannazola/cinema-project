@@ -27,10 +27,21 @@
       </div>
     </div>
     <div class="header__navigation-group">
-      <div class="header__navigation-text" [routerLink]="['/login']">Login</div>
-      <div class="header__navigation-text" [routerLink]="['/registration']">
-        Registration
+      <div
+        class="header__navigation-text"
+        *ngIf="condition != null; else elseBlock"
+        (click)="onClickClear(); onClickRefresh()"
+      >
+        Logout
       </div>
+      <ng-template #elseBlock>
+        <div class="header__navigation-text" [routerLink]="['/login']">
+          Login
+        </div>
+        <div class="header__navigation-text" [routerLink]="['/registration']">
+          Registration
+        </div></ng-template
+      >
     </div>
   </div>
 </section>

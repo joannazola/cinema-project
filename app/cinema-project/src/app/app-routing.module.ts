@@ -6,6 +6,7 @@ import { WhatsOnComponent } from './whats-on/whats-on.component';
 import { MyTicketsComponent } from './my-tickets/my-tickets.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { BuyComponent } from './buy/buy.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main-page', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'my-tickets', component: MyTicketsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
+  { path: 'buy', component: BuyComponent },
 ];
 
 @NgModule({

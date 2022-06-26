@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { tick } from '@angular/core/testing';
+import { MoviesService } from '../services/movies.service';
+import * as io from 'socket.io-client';
+var socket = io.connect('http://localhost:3100');
 
 @Component({
   selector: 'app-whats-on',
@@ -8,16 +9,25 @@ import { tick } from '@angular/core/testing';
   styleUrls: ['./whats-on.component.scss'],
 })
 export class WhatsOnComponent implements OnInit {
-  li: any;
-  lis = [];
-  constructor(private http: HttpClient) {}
+  movies: any;
+  preorders: any;
+  buy = 'XD';
+  constructor(private service: MoviesService) {}
 
   ngOnInit(): void {
-    this.http.get('http://localhost:3000/movies').subscribe((Response) => {
-      console.log(Response);
-      this.li = Response;
-      this.lis = this.li.Men;
-      console.log(this.li);
+    this.service.getMovies().subscribe((response) => {
+      this.movies = response;
+    });
+    this.service.getPreorders().subscribe((response) => {
+      this.preorders = response;
     });
   }
+
+  sentToBuy = (mess: any) => {
+    if (this.preorders.length > 0) {
+      alert(`You have an unfinished order!`);
+    } else {
+      socket.emit('preorder', mess);
+    }
+  };
 }

@@ -1,1 +1,6 @@
-<p>my-tickets works!</p>
+<div *ngIf="condition == null; else elseBlock">You are not logged in!</div>
+<ng-template #elseBlock>
+  <div class="ticket">
+    <div class="ticket__panel"></div>
+  </div>
+</ng-template>

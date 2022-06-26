@@ -1,0 +1,46 @@
+<div class="preorder">
+  <div class="preorder_mov">
+    <div class="preorder__movie" *ngFor="let preorder of preorders">
+      <div class="preorder__movie-title">{{ preorder.movie }}</div>
+    </div>
+    <form
+      [formGroup]="profileForm"
+      (ngSubmit)="onSubmit()"
+      class="preorder__movie-form"
+    >
+      <input id="input" type="text" formControlName="name" placeholder="Name" />
+      <input
+        id="input"
+        type="text"
+        formControlName="lastName"
+        placeholder="Last name"
+      />
+      <input
+        id="input"
+        type="text"
+        formControlName="email"
+        placeholder="e-mail"
+      />
+      <select #mHour id="input" (change)="onSelectedHour(mHour.value)">
+        <option default>Available hours</option>
+        <option *ngFor="let movieHour of moviesHours">
+          {{ movieHour.hour }}
+        </option>
+      </select>
+      <select #mPlaces id="input" (change)="onSelectedPlace(mPlaces.value)">
+        <option default>Available places</option>
+        <option *ngFor="let place of places">
+          {{ place }}
+        </option>
+      </select>
+    </form>
+  </div>
+
+  <div class="movie-plan">
+    <img src="../../assets/images/movie-plan.jpg" alt="" />
+  </div>
+
+  <div>
+    <button (click)="onSubmit()" class="button-submit">Rezerwuj</button>
+  </div>
+</div>

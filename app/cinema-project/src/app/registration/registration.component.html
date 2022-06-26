@@ -1,1 +1,21 @@
-<p>registration works!</p>
+<section class="login">
+  <div class="login__welcome">CREATE AN ACCOUNT!</div>
+  <div class="login__icon">
+    <img src="../../assets/images/lock.png" alt="" class="login__image" />
+  </div>
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="login__form">
+    <input
+      id="login"
+      type="text"
+      formControlName="login"
+      placeholder="Username"
+    />
+    <input
+      id="login"
+      type="password"
+      formControlName="password"
+      placeholder="Password"
+    />
+  </form>
+  <button (click)="onSubmit()" class="button-submit">Sign up</button>
+</section>
