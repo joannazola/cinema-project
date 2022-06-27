@@ -64,6 +64,47 @@ io.on("connection", (socket) => {
       }
     });
   });
+  socket.on("loggedin", function (message) {
+    fs.readFile("database.json", "utf8", function readFileCallback(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        obj = JSON.parse(data);
+
+        obj.orders.push({
+          order: message,
+        });
+
+        obj.preorders.pop();
+        obj.preorderWithoutLogin.pop();
+        json = JSON.stringify(obj);
+        fs.writeFile("database.json", json, "utf8", function (err) {
+          if (err) throw err;
+          console.log("complete");
+        });
+      }
+    });
+  });
+  socket.on("notloggedin", function (message) {
+    fs.readFile("database.json", "utf8", function readFileCallback(err, data) {
+      if (err) {
+        console.log(err);
+      } else {
+        obj = JSON.parse(data);
+
+        obj.preorderWithoutLogin.push({
+          order: message,
+        });
+
+        obj.preorders.pop();
+        json = JSON.stringify(obj);
+        fs.writeFile("database.json", json, "utf8", function (err) {
+          if (err) throw err;
+          console.log("complete");
+        });
+      }
+    });
+  });
 });
 
 server.listen(3100, () => {

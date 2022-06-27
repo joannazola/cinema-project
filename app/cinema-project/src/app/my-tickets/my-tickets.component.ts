@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from '../services/movies.service';
 
 @Component({
   selector: 'app-my-tickets',
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-tickets.component.scss'],
 })
 export class MyTicketsComponent implements OnInit {
-  condition: any = localStorage.getItem('pass');
+  orders: any;
+  login: any = localStorage.getItem('pass');
+  constructor(private service: MoviesService) {}
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.service.getOrders().subscribe((response) => {
+      this.orders = response;
+    });
+  }
 }

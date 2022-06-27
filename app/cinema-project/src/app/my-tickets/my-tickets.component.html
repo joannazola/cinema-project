@@ -1,6 +1,30 @@
-<div *ngIf="condition == null; else elseBlock">You are not logged in!</div>
+<div *ngIf="login == null; else elseBlock" class="not-logged">
+  <div class="not-logged__text">You are not logged in!</div>
+</div>
 <ng-template #elseBlock>
   <div class="ticket">
-    <div class="ticket__panel"></div>
+    <div>
+      <div *ngFor="let order of orders">
+        <div *ngIf="login == order.order.login" class="ticket__panel">
+          <div class="ticket__panel__section1">
+            <div class="ticket__panel__title">{{ order.order.title }}</div>
+            <div class="ticket__panel__name">Name: {{ order.order.name }}</div>
+            <div class="ticket__panel__lastname">
+              Lastname:
+              {{ order.order.lastName }}
+            </div>
+          </div>
+          <div class="ticket__panel__section2">
+            <div class="ticket__panel__hour">Hour: {{ order.order.hour }}</div>
+            <div class="ticket__panel__place">
+              Place: {{ order.order.place }}
+            </div>
+          </div>
+          <div>
+            <img src="../../assets/images/logo-cinema.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </ng-template>
